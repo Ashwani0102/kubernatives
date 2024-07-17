@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: ghost-deployment
+ labels:
+  type: cms
+  author: Ashwani
+spec:
+ replicas: 3
+ selector:
+  matchLabels:
+   type: cms
+ template:
+  metadata:
+   name: ghost-pod
+   labels:
+    type: cms
+  spec:
+   containers:
+    - name: myghost
+      image: ghost
+      env:
+       - name: NODE_ENV
+         value: development
+      ports:
+       - containerPort: 2386
+         hostPort: 8080
+                 
+...         

@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: jenkins-deployment
+ labels:
+  type: webserver
+  author: Ashwani
+spec:
+ replicas: 3
+ selector:
+  matchLabels:
+   type: webserver
+ template:
+  metadata:
+   name: jenkins-pod
+   labels:
+    type: webserver
+  spec:
+   containers:
+    - name: myjenkins
+      image: jenkins/jenkins
+...           
