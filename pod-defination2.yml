@@ -22,10 +22,19 @@ spec:
       image: postgres
       env:
        - name: POSTGRES_PASSWORD
-         value: Ash
+         valueFrom:
+           secretKeyRef:
+             name: pg-secret
+             key: password
        - name: POSTGRES_USER
-         value: myuser
+         valueFrom:
+           secretKeyRef:
+             name: pg-secret
+             key: username
        - name: POSTGRES_DB
-         value: mydb
+         valueFrom:
+           secretKeyRef:
+             name: pg-secret
+             key: dbname
 ...
 

@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ngnix-pod
+  labels:
+    type: proxy
+spec:
+  containers:
+    - name: mynginx
+      image: nginx 
+  tolerations:
+    - key: slave1
+      value: Ash1
+      effect: NoSchedule
+      operator: Equal
+...        
