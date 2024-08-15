@@ -39,6 +39,6 @@ spec:
   selector: 
     type: php-apache
 ...      
-
-
-
+## After deploying this you need to type below command to start autoscalling.
+## kubectl autoscale deployment <deployment name> --cpu-percent=50 --min=1 --max=10
+## To check autoscalling command is kubectl get hpa
